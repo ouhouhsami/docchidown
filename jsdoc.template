@@ -1,0 +1,13 @@
+{{#.}}
+## {{ context.type }} {{ context.name }}
+{{#comment.tags}}
+{{title}} {{name}} {{type}} {{&description}}
+{{/comment.tags}}
+{{#children}}
+### {{ context.type }} {{ context.name }}
+{{#comment.tags}}
+{{title}} {{name}} {{type}} {{description}}
+{{/comment.tags}}
+{{/children}}
+{{&comment.description}}
+{{/.}}
