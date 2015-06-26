@@ -12,7 +12,7 @@
     "minimist": "^1.1.1"
   },
   "bin": {
-    "docchidown": "./bin/docchidown.js"
+    "docchidown": "bin/docchidown.js"
   },
   "files": ["jsdoc.template"]
 }
