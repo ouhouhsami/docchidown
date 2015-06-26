@@ -1,4 +1,3 @@
-#!/usr/local/bin/node --harmony
 "use strict"
 
 var fs = require('fs');
