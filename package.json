@@ -14,5 +14,5 @@
   "bin": {
     "docchidown": "./bin/docchidown"
   },
-  "files": ["jsdoc.template"]
+  "files": ["jsdoc.template", "bin"]
 }
