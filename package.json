@@ -11,6 +11,8 @@
   "dependencies": {
     "minimist": "^1.1.1"
   },
-
+  "bin": {
+    "docchidown": "bin/docchidown"
+  },
   "files": ["jsdoc.template"]
 }
