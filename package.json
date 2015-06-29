@@ -13,6 +13,5 @@
   },
   "bin": {
     "docchidown": "./bin/docchidown.js"
-  },
-  "files": ["jsdoc.template"]
+  }
 }
