@@ -4,8 +4,9 @@
 
 var docchidown = require('../docchidown');
 
+// proccess args for options
 var args = process.argv.slice(2);
-var chunks = []
+var chunks = [];
 
 process.stdin.on('readable', function() {
   var chunk = process.stdin.read();
@@ -18,8 +19,8 @@ process.stdin.on('end', function() {
   // run docchidown
   docchidown
     .parse({ source: json })
-    .then(function(json) {
-      var result = JSON.stringify(json, null, 2);
-      process.stdout.write(result);
+    .then(function(result) {
+      var json = JSON.stringify(result, null, 2);
+      process.stdout.write(json);
     });
 });

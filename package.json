@@ -9,8 +9,11 @@
   "author": "Samuel Goldszmidt <samuel.goldszmidt@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "handlebars": "^3.0.3",
     "minimist": "^1.1.1",
-    "mustache": "^2.1.2"
+    "mustache": "^2.1.2",
+    "swig": "^1.4.2",
+    "underscore": "^1.8.3"
   },
   "bin": {
     "docchidown": "./bin/docchidown"

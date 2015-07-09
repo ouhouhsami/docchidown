@@ -1,0 +1,73 @@
+{{#.}}
+## {{ context.type }} {{ context.name }}
+{{#comment.tags}}
+{{title}} {{name}} {{type}} {{&description}}
+{{/comment.tags}}
+{{#children}}
+### {{ context.type }} {{ context.name }}
+{{#comment.tags}}
+{{title}} {{name}} {{type}} {{description}}
+{{/comment.tags}}
+{{/children}}
+{{&comment.description}}
+{{/.}}
+
+
+// test handlebar (...lack logic in templating)
+
+{{#each this }}
+
+
+    {{!--  class main description --}}
+
+# {{ name }}
+
+{{{ description }}}
+
+{{#each tags}}
+
+## {{{ title }}}
+
+{{{ description }}}
+
+{{/each}}
+
+
+    {{!--  class constructor --}}
+
+## Constructor
+
+{{#each _constructor }}
+
+### new {{ ../name }} `({{#each tags }}{{ name }}:{{ type.name }} {{/each }})`
+
+{{ description }}
+
+
+{{/each }}
+
+
+    {{!--  class properties --}}
+
+## Properties
+
+{{#each _property }}
+
+### {{ name }} `: = {{ default }}`
+
+{{/each }}
+
+
+    {{!--  class methods --}}
+
+## Methods
+
+{{#each _method }}
+
+### .{{ name }} `({{#each tags }}{{ name }}:{{ type.name | type.expression.name }} {{/each }})`
+
+{{ description }}
+
+{{/each }}
+
+{{/each }}

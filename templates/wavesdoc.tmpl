@@ -1,0 +1,83 @@
+<% results.forEach(function(classDef, index) { %>
+
+<% /* Class general description */ %>
+# <%= classDef.name %>
+
+<%= classDef.description %>
+
+<% classDef.tags.forEach(function(tag, index) { %>
+
+## <%= tag.title %>
+
+<%= tag.description %>
+
+<% }); %>
+
+<% /* Constructor description */ %>
+
+<% classDef._constructor.forEach(function(cons, index) { %>
+
+### <%= cons.name %> <% if (cons.tags.length) { %>`(<%= cons.tags.map(function(tag) {
+  var desc = tag.name;
+  if (tag.type && tag.type.name) { desc += ':' + tag.type.name; }
+
+  return desc;
+}).join(', ') %>)`<% } %>
+
+<%= cons.description %>
+
+<% }); %>
+
+<% /* Attributes description */ %>
+
+## Attributes
+
+<% if (classDef._property) { %>
+<% classDef._property.forEach(function(prop, index) { %>
+<% if (prop.name.match(/^_/)) { return; } %>
+
+<% var props = _.filter(prop.tags, function(tag) { return tag.title === 'property'; }); %>
+<% var others = _.difference(prop.tags, props); %>
+
+### <%= prop.name %> <% if (props.length) { %>`(<%= props.map(function(tag) {
+  var desc = tag.name;
+  if (tag.type && tag.type.name) { desc += ':' + tag.type.name; }
+
+  return desc;
+}).join(', ') %>)`<% } %>
+
+<% if (others.length) { %>
+(<%= others.map(function(tag) { return tag.title; }).join(', ') %>)
+<% } %>
+
+<%= prop.description %>
+
+<% }); %>
+<% } %>
+
+<% /* Methods description */ %>
+
+## Methods
+
+<% classDef._method.forEach(function(method, index) { %>
+<% if (method.name.match(/^_/)) { return; } %>
+
+<% var params = _.filter(method.tags, function(tag) { return tag.title === 'param'; }) %>
+
+### <%= method.name %> <% if (params.length) { %>`(<%= params.map(function(tag) {
+  var desc = tag.name;
+  if (tag.type && tag.type.name) { desc += ':' + tag.type.name; }
+  if (tag.type && tag.type.expression && tag.type.expression.name) {
+    desc += ':' + tag.type.expression.name;
+  }
+
+  if (tag.default) { desc += ' = ' + tag.default; }
+
+  return desc;
+}).join(', ') %>)`<% } %>
+
+<%= method.description %>
+
+<% }); %>
+
+<% }); %>
