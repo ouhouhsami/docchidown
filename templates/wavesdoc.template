@@ -1,0 +1,35 @@
+{{# . }}
+# {{ name }}
+
+{{{ description }}}
+
+{{! class tags }}
+{{# tags }}
+
+## {{ title }}
+
+{{{ description }}}
+
+{{/ tags }}
+
+{{! class properties }}
+{{# _constructor }}
+
+
+
+{{/ _constructor }}
+
+{{! class properties }}
+{{# _property }}
+
+### {{ mane }} `:{{type}} = {{default}}`
+
+{{/ _property }}
+
+
+
+
+
+{{! end class }}
+{{/ . }}
+

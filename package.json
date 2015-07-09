@@ -2,16 +2,17 @@
   "name": "docchidown",
   "version": "0.0.1",
   "description": "ES6 JSDoc to markdown utils",
-  "main": "cli.js",
+  "main": "docchidown.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Samuel Goldszmidt <samuel.goldszmidt@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "minimist": "^1.1.1"
+    "minimist": "^1.1.1",
+    "mustache": "^2.1.2"
   },
   "bin": {
-    "docchidown": "./bin/docchidown.js"
+    "docchidown": "./bin/docchidown"
   }
 }
